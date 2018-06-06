@@ -215,3 +215,102 @@ for(var i - 0; i < suspects.length; i++) {
   suspectList.push(CreateSuspectObjects(suspects[i]));
 }
 
+
+// Looping with _.each
+
+function CreateSuspectObjects(name) {
+  return {
+    name: name,
+    color: name.split(' ')[2],
+    speak() {log("my name is ${name}");}
+    };
+  };
+
+
+var suspects = ['Miss Scarlet', 'Colonel Mustard', 'Mr. White'];
+var suspectsList =[];
+
+_.each(suspects, function(name) {
+  let suspectObj = CreateSuspectObjects(name);
+  suspectsList.push(suspectObj);
+});
+
+// one line
+
+_.each(suspects, function(name) {
+  suspectsList.push(CreateSuspectObjects(name));
+});
+
+// Bianca demonstrates how to use native forEach in modern browsers and _.each from underscore to loop through a list and their respective differences.
+
+// _.each() / forEach DEFINED
+
+_.each(
+  ['observatory', 'ballroom', 'library'],
+  function(value, index, list) { ... }
+);
+
+['observatory', 'ballroom', 'library']
+.forEach(function(value,index,list) { ... });
+
+//Iterates over a list of elements, passing the values to a function.
+// Each invocation of iterator, the function, is called with three arguments:
+// (element, index, list). If LIST is a Javascript object, iterator's arguments will be 
+// (value, key, list)
+
+// USAGE
+_.each = function(list, callback) {
+  // ... TODO
+}
+
+var rooms = ['observatory', 'ballroom', 'library'];
+var logger = function(val) {
+  console.log(val);
+};
+
+// what will this log?
+_.each(rooms, logger);
+// >> observatory, ballroom, library 
+
+// EXERCISE
+//we wanna make sure this works with Objects and Arrays
+
+//THINKIG INSIDE OF THE EACH FUNCTION
+const _ = {};
+
+_.each = function(list, callback) {
+  if(Array.isArray(list)) { //true
+    //loop through array
+    for (var i = 0; i < list.length; i++) {
+      // first is the value, then the index, then the list inside of the callback function you have access to those three. it's flexible
+      //call the callback with a list item
+      callback(list[i], i, list);
+    }
+      
+  } else {
+    //loop through object
+    //call the callback with a list item
+    //loop through the list
+    // for each loop i want to call the callback with a list item
+    for(var key in list) {
+      callback(list[key], key, list)
+    }
+  }
+}
+
+// THIS IS WHAT WE WRITE 
+//call .each so we can look at it with some data
+_.each(['Sally', 'Georgie', 'Porgie'], function(name, i, list) {
+  if(list[i + 1]) {
+    console.log(name, 'is younger than', list[i+1] );
+  } else {
+    console.log(name, 'is the oldest')
+  }
+})
+
+//so for each one we are gonna loop through and check IF there is an item after
+// the current index, we r gonna console log that 'sally is younger than georgie'
+// if there isnt one, we'll say 'porgie is the oldest'
+
+// list = the Array
+// callback = the entire function (above)
