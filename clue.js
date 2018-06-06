@@ -314,3 +314,19 @@ _.each(['Sally', 'Georgie', 'Porgie'], function(name, i, list) {
 
 // list = the Array
 // callback = the entire function (above)
+
+
+// _.map() / .map() DEFINED
+
+_.map([1, 2, 3], function(v, i, list) { console.log(v)})
+
+//we are not saying return here so it will return undefined 
+// in this case we'll have an array of length 3 of undefined values
+//why? because the original array is length 3 
+// return an array of the same size every time 
+
+// http://underscorejs.org/#map
+
+// - produces a new array of values by mapping each value in list through a transformation function (iterator)
+// -Each invocation of iterator is called with three arguments: (element, index, list). 
+// If lists is a JS object. iterator's arguments will be (value, key, list)
