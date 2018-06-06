@@ -180,3 +180,38 @@ var suspects = ['Miss Scarlet', 'Colonel Mustard', 'Mr. White'];
 
 //SPEAK is a method on an object now (ES6 feature) we can add methods with no colons, just straight on there. Just a regular function!
 
+// EXERCISE 
+// we want to initialize each subject into our object - 'hydration' for this case 
+
+
+// we wanna hydrate this list , we have the suspects list which needs to be a list of objects
+// created from the CreateSuspectObjects function
+
+// So we want Miss Scarlet to have a function with a name property with a name property that says 'miss scarlet' 
+// and when we say missscarlet.speak we want it to say 'my name is miss scarlett'
+
+// Hydrated object with Miss Scarlett
+x = CreateSuspectObjects('Miss Scarlet');
+
+
+function CreateSuspectObjects(name) {
+  return {
+    name: name,
+    color: name.split(' ')[2],
+    speak() {
+      console.log("my name is ", name);
+    }
+  };
+};
+
+var suspects = ['Miss Scarlet', 'Colonel Mustard', 'Mr. White'];
+var suspectsList =[];
+
+// so we can loop through our list and assign suspect and we are gonna pass Create SuspectsObjects at I 
+// THEN we push suspects to the suspect list
+
+
+for(var i - 0; i < suspects.length; i++) {
+  suspectList.push(CreateSuspectObjects(suspects[i]));
+}
+
