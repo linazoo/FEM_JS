@@ -14,7 +14,7 @@ var game = {};
 
 game.murderer = "??";
 
-game.['weapons'] = [
+game['weapons'] = [
   {type: 'gun'},
   {type: 'lasers'},
   {type:'angry dogs'},
@@ -32,6 +32,13 @@ game.name.push('Mr. Green')
 // What is the difference between dot and bracket notation?
 // How do you add a property with a key that contains special characters?
 // How do you add a property whose key and value are stored in different variables?
+var thing1 = "butters";
+var myvalue = ["hay sucka"];
+
+game[thing1] = myvalue;
+console.log(game);
+
+
 // How do we loop through objects to access the values?
 
 // Destructuring: a simplified method to extract multiple properties from an object
