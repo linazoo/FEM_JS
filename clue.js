@@ -406,3 +406,19 @@ _.each(list, function(v, i , list) {
   storage.push(callback(v, i, list)) 
 })
 
+// _.filter 
+
+_.filter = function(arr, callback) {
+  //create a new array
+  const storage = [];
+  //loop through array 
+  for(let i = 0; i < arr.length; i++) {
+    // check if callback returns true
+    if(callback(arr[i], i, arr) === true) {
+      //if it does push into array 
+      storage.puhs(arr[i])
+    }
+  }
+  //return array
+  return storage;
+}
