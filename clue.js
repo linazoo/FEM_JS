@@ -63,7 +63,7 @@ var [first, second] = [true, false];
 // allows you to reassign (kinda like var BUT...) let has implications for a scope. Before 'let' we didnt have a concept for a scope. a block is just {} that isnt an object. they can be a function block or an 'if' etc.
 
 //OJECTS DESTRUCTURING
-variable declarations:
+// variable declarations:
 const { first, second } = { first: 0, second: 1 }
 // How is this working? because the order and the matching names of the objects. OBJECTS dont have an order - the names have to match.
 
@@ -375,4 +375,34 @@ var suspectsList = _.map(suspects, function(name){
 _.each(suspects, function(suspect) {
   suspect.speak()
 });
+
+// Implementing Map
+//Looping with _.map 
+
+
+// first, make sure we have an array
+// create an empty array to store
+const _ = {};
+_.map = function (list, callback) {
+  var storage = [];
+  //loopin
+  for (var i = 0; i < list.length; i++) {
+    //callback on each element and push to the storage array
+    //callback(element)
+    //push it 
+      storage.push(callback(list[i], i, list))
+  }
+
+  // return []
+  return storage;
+}
+
+_.map([1,2,3], function(val) {return val +1;})
+
+// since functional programmers DONT LIKE LOOPS we're gonna use each
+//how do we translate the above to our each?
+
+_.each(list, function(v, i , list) {
+  storage.push(callback(v, i, list)) 
+})
 
