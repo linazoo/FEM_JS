@@ -322,7 +322,7 @@ _.each(['Sally', 'Georgie', 'Porgie'], function(name, i, list) {
 // list = the Array
 // callback = the entire function (above)
 
-
+// -----------------------------------------------------------------------------------------
 // _.map() / .map() DEFINED
 
 _.map([1, 2, 3], function(v, i, list) { console.log(v)})
@@ -337,3 +337,20 @@ _.map([1, 2, 3], function(v, i, list) { console.log(v)})
 // - produces a new array of values by mapping each value in list through a transformation function (iterator)
 // -Each invocation of iterator is called with three arguments: (element, index, list). 
 // If lists is a JS object. iterator's arguments will be (value, key, list)
+
+const weapons = [ 'candlestick', 'lead pipe', 'revolver']
+
+const makeBroken = function(item) {
+  return `broken ${item}`;
+}
+
+const brokenWeapons = _.map(weapons, makeBroken);
+
+//what would we get? check if its an array like this:
+
+Array.isArray(_.map(weapons, makeBroken)) 
+
+// returns an array with ['broken pipe, broken candlestick ...']
+
+brokenWeapons;
+
