@@ -354,3 +354,25 @@ Array.isArray(_.map(weapons, makeBroken))
 
 brokenWeapons;
 
+
+
+// _.map vs _.each 
+function CreateSuspectObjects(name) {
+  return {
+    name: name,
+    color: name.split(' ')[1],
+    speak() {log("my name is ${this.name}");}
+    };
+  };
+
+// rather than concatonating strings we are creating objects and returning them 
+var suspects = ['Miss Scarlet', 'Colonel Mustard', 'Mr. White'];
+var suspectsList = _.map(suspects, function(name){
+  return CreateSuspectObjects(name);
+});
+
+//...and then we can each through them and call each one
+_.each(suspects, function(suspect) {
+  suspect.speak()
+});
+
