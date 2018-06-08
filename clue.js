@@ -422,17 +422,107 @@ _.filter = function(arr, callback) {
   //return array
   return storage;
 }
-
+// ---------------------------------------------------
 // using each 
 
 _.filter = function(arr, callback) {
   //create new array
   const storage = [];
   // loop through array 
-  _.each(arr, function(val, i, list) {
-    if(callback(val, i, list)) storage.push(val);
+  _.each(arr, function(item, i, list) {
+    if(callback(item, i, list)) { storage.push(item); }
   });
 
   //return array
   return storage;
 }
+
+
+//now we're going tot take our filter and apply it our data
+
+const videoData = [
+  {
+      name: 'Miss Scarlet',
+      present: true,
+      rooms: [
+          {kitchen: false},
+          {ballroom: false},
+          {conservatory: false},
+          {'dining room': false},
+          {'billiard room': false},
+          {library: false}
+      ]
+  },
+  {
+      name: 'Mrs. White',
+      present: false,
+      rooms: [
+          {kitchen: false},
+          {ballroom: false},
+          {conservatory: false},
+          {'dining room': false},
+          {'billiard room': false},
+          {library: false}
+      ]
+  },
+  {
+      name: 'Reverend Green',
+      present: true,
+      rooms: [
+          {kitchen: false},
+          {ballroom: false},
+          {conservatory: false},
+          {'dining room': false},
+          {'billiard room': false},
+          {library: false}
+      ]
+  },
+  {
+      name: 'Rusty',
+      present: false,
+      rooms: [
+          {kitchen: false},
+          {ballroom: false},
+          {conservatory: false},
+          {'dining room': false},
+          {'billiard room': false},
+          {library: false}
+      ]
+  },
+  {
+      name: 'Colonel Mustard',
+      present: true,
+      rooms: [
+          {kitchen: false},
+          {ballroom: false},
+          {conservatory: false},
+          {'dining room': false},
+          {'billiard room': false},
+          {library: false}
+      ]
+  },
+  {
+      name: 'Professor Plum',
+      present: true,
+      rooms: [
+          {kitchen: false},
+          {ballroom: false},
+          {conservatory: false},
+          {'dining room': false},
+          {'billiard room': false},
+          {library: false}
+      ]
+  }
+];
+
+
+_.filter(videoData, function(suspectObject) {
+  return suspectObject.present;
+});
+
+// explained 
+// where does this code start?
+// we are calling our _.filter function which we defined
+// the first argument is videoData (our array) cb is the function
+// the function is getting called with each item in the array, an array of objects
+// so the first item in the array is a Typeof Object
