@@ -422,3 +422,17 @@ _.filter = function(arr, callback) {
   //return array
   return storage;
 }
+
+// using each 
+
+_.filter = function(arr, callback) {
+  //create new array
+  const storage = [];
+  // loop through array 
+  _.each(arr, function(val, i, list) {
+    if(callback(val, i, list)) storage.push(val);
+  });
+
+  //return array
+  return storage;
+}
