@@ -526,3 +526,17 @@ _.filter(videoData, function(suspectObject) {
 // the first argument is videoData (our array) cb is the function
 // the function is getting called with each item in the array, an array of objects
 // so the first item in the array is a Typeof Object
+
+
+FUNCITONS
+
+// API REQUESTS
+
+fetch('https://api.myjson.com/bins/n8kwe')
+  .then(function(response) {
+    return response.json();
+
+  });
+  .then(function(myJson) {
+    console.log(myJson);
+  });
