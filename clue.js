@@ -536,9 +536,40 @@ fetch('https://api.myjson.com/bins/n8kwe')
   .then(function(response) {
     return response.json();
 
-  });
+  })
   .then(function(myJson) {
     console.log(myJson);
   });
 
-  
+// one of the most imporant things about JAVASCRIPT?
+// KNOW WHAT CAN GO WRONG!
+
+// FUNCTIONS Specifics - what order does our code execute in?
+// (in addition to the onves above, map, filer each)
+
+var add = function(a, b) {
+  return a + b 
+};
+
+add(3, 4, 5);
+
+'add' = function name
+'a, b' = parameters 
+'{ return a + b };' = function body
+'add(3,4,5)' = Invocation/ Call-time 
+'3,4,5' = arguments  
+
+A couple of pieces that are confusing about functions to us:
+  - The difference between defining a function and invoking/calling a function
+    anything in the brackets is static - it never runs until it's called 
+
+Parameters: the parameters are variables, they don't hold a value until it's called 
+and the Arguments are what you pass (to the function they have values)
+  - often these terms are used interchangeably but they do mean different things:
+  Parameters are variables and have no value until called
+  Arguments are the actual value 
+// defining a function: its static, it doesnt run UNTIL you invoke it
+
+
+// SCAVENGER HUNT
+
