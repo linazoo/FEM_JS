@@ -634,3 +634,21 @@ $('button').on('click', () => {
 `Col ${name} Mc ${adj} pants`
 // this will evaluate to a string and it will look up the name
 
+// PROJECTING: 
+// when you take a value out of a data structure and turn it into another data structure
+
+// filter and then map a dataset to find desired values.
+// this is a common pattern for getting the particular data that you need then transforming it to some format that's relevant to whatever you're working on 
+
+// Our task is to take our filter data and then map it into an array of strings
+// right now we have an array of objects, each object representas an array of suspects
+
+const suspects = _.filter(videoData, function 
+(suspectObject) {
+  return suspectObject.present;
+});
+
+
+const suspectsNames = _.map( suspects, suspect => {
+  return suspect.name;
+})
