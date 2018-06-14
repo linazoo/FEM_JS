@@ -607,3 +607,30 @@ function argument: ('body'), ('button'), ('click', function() {console.log(...)}
 Return/Side Effects: return 'Col + name + 'Mc' + adj + 'pants';, anything on the dom is a side effect
 
 
+// Arrow Functions
+
+var nameImprover = (name, adj) => {
+  return `Col ${name} Mc ${adj} pants`;
+};
+
+$('body').hide();
+
+myArr.forEach(val => console.log(val)); 
+
+$('button').on('click', () => {
+  console.log('Don\'t press my buttons!');
+});
+
+// Syntax wise these are the differences: 
+//   we have a big fat arrow => the lack of the 'function' keyword is replaced by the arrow
+//   we dont have to wrap our parameters in a parantheses IF there's only ONE
+//   if its one line you dont have to wrap it in curlys 
+
+// its gonna bind the context - which is the value that THIS has to its parent context (???)
+// arrow functions don't have their own value for 'this' all functions have a keyword THIS that gets bound at calltime 
+// arrow functions reach up into the parent scope that grab that value (of this using BIND)
+
+// template string (ES6) allows you to interpolate variable names by wrapping it in a bracket 
+`Col ${name} Mc ${adj} pants`
+// this will evaluate to a string and it will look up the name
+
