@@ -559,17 +559,51 @@ add(3, 4, 5);
 'add(3,4,5)' = Invocation/ Call-time 
 '3,4,5' = arguments  
 
-A couple of pieces that are confusing about functions to us:
-  - The difference between defining a function and invoking/calling a function
-    anything in the brackets is static - it never runs until it's called 
+// A couple of pieces that are confusing about functions to us:
+//   - The difference between defining a function and invoking/calling a function
+//     anything in the brackets is static - it never runs until it's called 
 
-Parameters: the parameters are variables, they don't hold a value until it's called 
-and the Arguments are what you pass (to the function they have values)
-  - often these terms are used interchangeably but they do mean different things:
-  Parameters are variables and have no value until called
-  Arguments are the actual value 
+// Parameters: the parameters are variables, they don't hold a value until it's called 
+// and the Arguments are what you pass (to the function they have values)
+//   - often these terms are used interchangeably but they do mean different things:
+//   Parameters are variables and have no value until called
+//   Arguments are the actual value 
 // defining a function: its static, it doesnt run UNTIL you invoke it
 
 
 // SCAVENGER HUNT
+// Find: function definitions, Fn Names, Invocations, Arguments, Parameters, Fn Bodies, Return Values, SIde Effects
+// Return values : explicitly return - return statement 
+// Side Effects: things that are happening other than returning the value that affect something outside of that function
+// console.log(); is a side effect because you're logging to the console that exists outside of that function
+// Or if you're changing the value of an object that's in a different scope 
+
+var nameImprover = function (name, adj) {
+  return 'Col ' + name + ' MC' + adj + ' pants';
+};
+
+$('body').hide();
+
+myArr.forEach(function(val) {console.log(val);});
+
+$('button').on('click', function() {
+  console.log('Don\t press my buttons!');
+});
+
+function definitions: anything after this: function (){}
+function name: nameImprover, .hide, .forEach, .on, .log, $ 
+function body: { return 'Col ' + name + ' MC' + adj + ' pants'; }, {console.log(val);}, {
+  console.log('Don\t press my buttons!');
+}
+// Important thing about function bodies: They don't get run until the function is invoked
+
+function Invocations: .log(val), .log('don\'t press m buttons'), .hide();, .forEach(function(val), ), .on('click', function()'), $'s
+
+// Arguments vs parameters: arguments are passed to the fucntion parameters are used to invoke a function
+
+function parameters: (name, adj), (val)
+function argument: ('body'), ('button'), ('click', function() {console.log(...)}), (function(val){console.log(val);})
+
+Return/Side Effects: return 'Col + name + 'Mc' + adj + 'pants';, anything on the dom is a side effect
+
 
