@@ -652,3 +652,66 @@ const suspects = _.filter(videoData, function
 const suspectsNames = _.map( suspects, suspect => {
   return suspect.name;
 })
+
+// "Tuple": a data structure that has a collection of arrays that have two values
+
+// 1st: create a constant variable called 'createTuple' 
+// 2nd: variable set equal to a function
+// 3rd: the function is skipped until it is invoked
+// 4th: we call the createTuple function with the '' arguments
+// 5th: it returns 'it' 'could' 'be' 'anyone'
+
+const createTuple = (a, b, c, d) => {
+  return [[a,c], [b,d]];
+}
+
+createTuple('It', 'be', 'could', 'anyone', 'no one');
+
+// SPREAD OPERATOR
+// it gathers all the extra arguments and puts them in an array
+
+const createTuple = (a, b, c, ...d) => {
+  return [[a,c], [b,d]];
+}
+
+createTuple('It', 'be', 'could', 'anyone', 'no one');
+// => [[''it', 'could'],[ 'be' ]['anyone', no one]]]
+
+
+// DEFAULT PARAMETERS
+// Default prameters, are default values when an argument is either omitted or undefined
+// so if you don't pass a value it gets set to the default value
+
+const add = function(a,b=2) {
+  console.log(arguments); //logs[3]
+  return a+b; 
+};
+add(3); //5??
+
+// THE ARGUMENT keyword in this case: we didnt pass two arguments so the console.log will only print 3 which is the only argument we passed
+// its only paying attention to the explict values being passed to the function and if there's a default value or a spread operator it wont pick it up
+// it doesn't tell you anything about parameters it only cares about arguments
+
+//the above written without the default paraments (ES5)
+
+// so how do we set a default paramenter?
+
+const add = function(a, b) {
+  b = b || 2;
+  console.log(arguments);
+  return a + b; 
+}
+
+add(3);
+
+// Array-like Object
+
+const constructArr = function () {
+  const arr = Array.prototype.slice.call(arguments);
+  arr.push('the billiards room?');
+};
+constructArr('was', 'it', 'in');
+
+// this will take the array-like object and turn it into an actual array
+// by passing the arguments through the prototype.slice.call 
+// then it will push the second string 'the billiards room' to return 'was it in the billiards room'
