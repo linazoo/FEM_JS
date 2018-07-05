@@ -704,7 +704,7 @@ const add = function(a, b) {
 
 add(3);
 
-// Array-like Object
+// Array-like Object 
 
 const constructArr = function () {
   const arr = Array.prototype.slice.call(arguments);
@@ -715,3 +715,21 @@ constructArr('was', 'it', 'in');
 // this will take the array-like object and turn it into an actual array
 // by passing the arguments through the prototype.slice.call 
 // then it will push the second string 'the billiards room' to return 'was it in the billiards room'
+
+// .. Array.from is a better way to do it in ES6!
+// Array.from() method creates a new array instance from an array-like object
+
+const constructArr = function () {
+  debugger;
+  const arr = Array.from(arguments);
+  arr.push('the billiards room?');
+  return arr.join('');
+};
+constructArr('was', 'it', 'in');
+
+// IMPLEMENT _.from()
+
+const from = arr => {
+  // should take an array like object and return an array
+}
+
