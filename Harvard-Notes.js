@@ -214,3 +214,5 @@ const thisIsNotHoisted = function() {
 // before executing the code, the engine reads the entire file (errors caught in the first run) and will throw a syntax error if one is found
 // any function definitions will be saved in memory 
 // variable initializations will not be run, but lexically-scoped variable names will be declared
+// if you declare a variable without a keyword like 'const' let var it creates a global variable - this isnt used much
+
