@@ -189,3 +189,28 @@ thisIsALet = 50 // that is okay
 let thisIsALet = 50 // so const and let prvent you from creating somethign with the same variable name twice - var doesnt give you that
 
 
+var thisIsAVar = 50
+thisIsAVar = 51 
+var thisIsAVar // older way to declare variables and overwrite them and you can name things the same and its ok it OVERSHADOWS as if the older variable didnt exist 
+
+// HOSTING
+// takes the definition of something and 'hoists' it to the value at the top 
+// function definitions are hoisted but not lexically-scoped initializations 
+
+function thisIsHoisted() {
+  console.log('this is a function declared at the bottom of a file');
+}
+// if we call thisIsHoisted() at the top of the file it will work
+
+// wont work in a case like this:
+const thisIsNotHoisted = function() {
+  console.log('should this be hoisted?')
+}
+
+// like 206 is declared as a const and it can't be changed whereas the function can be changed 
+
+// The Javascript Engine
+// How JAVASCRIPT is executed?
+// before executing the code, the engine reads the entire file (errors caught in the first run) and will throw a syntax error if one is found
+// any function definitions will be saved in memory 
+// variable initializations will not be run, but lexically-scoped variable names will be declared
