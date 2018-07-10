@@ -131,3 +131,17 @@ const o3 = deepCopy(o)
 o.obj.key = 'new key!'
 console.log(o3.obj.key)
 
+// Prototypal Inheritance
+// non primitive types have a few properties/methods associated with them (array.prototype.push)
+const arr = []
+arr.push('value') 
+// arr >> ["value"]
+
+// string.prototype.toUpperCase()
+const str = "string"
+str.toUpperCase()
+// >> STRING
+
+//Each object stores a reference to its prototype (it knows about all these methods and it stores a reference)
+//Properties/methods defined most tightly to the instance have priority
+arr.double__proto__ //shows you all the methods you can call on this array 
