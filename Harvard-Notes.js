@@ -145,3 +145,47 @@ str.toUpperCase()
 //Each object stores a reference to its prototype (it knows about all these methods and it stores a reference)
 //Properties/methods defined most tightly to the instance have priority
 arr.double__proto__ //shows you all the methods you can call on this array 
+
+// Prototypal Inheritance
+
+// JS will automatically "box" (wrap) primitive values so you have access to methods 
+
+42.toString() // Errors 
+const x = 42;
+x.toString() // "42"
+x.__proto__ // []Number: 0
+x instanceof Number // false 
+
+// why use reference to prototype?
+// whats the alternative?
+// whats the danger? you change the prototype and it will change everything else so its adviced NOT to do
+
+// SCOPE
+// WHAT IS IT? its variable lifetime 
+
+// 1. Lexical scoping (var); from when the're declared until when their function ends
+// give me a variable and it will exist until the function ends or as long as its in the file
+
+// 2. Block scoping (const, let); until the next } is reached
+// a variable will exist from when its declared until the } is reached 
+// const can't be updated
+// let can be updated 
+
+console.log(thisIsAConst) // since this things are blocked scope it means the variable is declared at the line that is written - if we tried to use it before then it doesnt exist at all
+// javascript intepreter reads from top to bottom 
+
+const thisIsAConst = 50
+
+thisIsAConst ++ // error! we can't update a constant! 
+
+const constObj = {}
+constObj.a = 'a' // this is okay with because the reference to that object did not change we just mutated it 
+
+// whereas
+
+let thisIsALet = 51
+thisIsALet = 50 // that is okay
+// but if i tried to reassign
+let thisIsALet = 50 // so const and let prvent you from creating somethign with the same variable name twice - var doesnt give you that
+
+
