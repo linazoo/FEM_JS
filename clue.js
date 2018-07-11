@@ -733,3 +733,30 @@ const from = arr => {
   // should take an array like object and return an array
 }
 
+// TESTING SUITES
+
+(function() {
+  // typeof describe === 'function'
+  describe('Scope Exercises', function() {
+    var ACTUAL;
+
+    // this resets the value of ACTUAL (to null) before each test is run 
+    beforeEach(function() {
+      ACTUAL = null;
+    });
+
+    it('a function has access to its own local scope variables', function () {
+      var fn = function () {
+        var name = 'inner';
+        ACTUAL = name;
+
+      };
+      fn();
+      expect(ACTUAL === 'inner').to.be.true;
+    });
+  })
+})
+
+// FUNCTION SCOPE
+// Think of SCOPE as a global scope, outter scope, inner, inner 
+// inside the function u can only reach for function in the OUTTER scopes 
