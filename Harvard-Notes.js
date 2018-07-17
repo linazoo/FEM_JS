@@ -237,5 +237,56 @@ function makeFunctionArray() {
 const arr = makeFunctionArray() // I'd get back an array full of functions and each of them would print a number
 // we expect it to print out 0 but actually it prints 5 why? THIS is actually as expected
 
+function makeHelloFunction() {
+  const message = "hello!"
 
+  function sayHello() {
+    console.log(message)
+  }
+  return sayHello
+}
 
+const sayHello = makeHelloFunction()
+
+console.log(message) // error message is not defined 
+
+sayHello() // will actually console.log Hello!
+
+// thats a colsure because the variable called sayHello() doesn't exist but it still works because it was invoked when that was created (?)
+
+function makeHelloFunction1() {
+	const message = 'Hello!'
+
+	function sayHello() {
+		console.log(message)
+	}
+	return sayHello
+}
+
+const sayHello = makeHelloFunction1()
+undefined
+sayHello()
+// VM1000:5 Hello!
+// undefined
+
+//why does this bug exist?
+
+function makeFunctionArray() {
+  const arr = []
+
+  for (var i = 0; i < 5; i++) {
+    arr.push(function() { console.log(i) })
+  }
+  return arr
+}
+
+const functionArr = makeFunctionArray()
+
+functionArr[0]() 
+
+//what is the value of i? === undefined  because its not within scope  BUT because of closures if you console.log(i) before  return arr its 5 
+
+// Immediately Invoked Function Expression or IIFE
+// A function expression that gets invoked immediately 
+// creates a closure 
+// benefit: doesnt add to or modify global object 
