@@ -216,3 +216,26 @@ const thisIsNotHoisted = function() {
 // variable initializations will not be run, but lexically-scoped variable names will be declared
 // if you declare a variable without a keyword like 'const' let var it creates a global variable - this isnt used much
 
+// The GLobal Object
+// all variables and functions are actually parameters and methods on the global object 
+// browswer global object is the 'window' object
+// node.js blogal object is the 'global' object 
+
+// Closures
+// functions that refer to variables declared by parent function 
+// possible because of scoping 
+
+function makeFunctionArray() {
+  const arr = []
+
+  for (var i = 0; i < 5; i++) {
+    arr.push(function() { console.log(i) })
+  }
+  return arr
+}
+
+const arr = makeFunctionArray() // I'd get back an array full of functions and each of them would print a number
+// we expect it to print out 0 but actually it prints 5 why? THIS is actually as expected
+
+
+
