@@ -290,3 +290,34 @@ functionArr[0]()
 // A function expression that gets invoked immediately 
 // creates a closure 
 // benefit: doesnt add to or modify global object 
+
+// a way to make this without making a global scoped function is an IIFE
+
+const sayHello = (function () {
+	const message = 'Hello!'
+
+	function sayHello() {
+    console.log(message)
+  }
+    return sayHello
+  })()
+  
+  // why is IFFE useful? we want to have a class and we want to keep track of it but dont want it to be accessible to other people? we can create
+  // that variable that is not accessible globaly like such:
+
+  const counter = (function () {
+    let count = 0
+
+    return {
+      inc: function() { count = count + 1 },
+      get: function() { console.log(count) }, 
+    }
+  })() 
+  // we can wrap that function in a () and immediately envoke it - nowe we have an object that has a 'inc' and a 'get' function so we can envoke those
+  counter.inc() // 0
+  counter.get() // increments to 1
+  counter.inc() // prints out 1
+
+  // nowhere has anyone access to that variable because its wrapped in that fucntion that nobody can access bc its scope is limited to lines 308 - 315
+  // and the only things that have access to that variable are the return fucntions 
+
