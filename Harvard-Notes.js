@@ -319,5 +319,17 @@ const sayHello = (function () {
   counter.inc() // prints out 1
 
   // nowhere has anyone access to that variable because its wrapped in that fucntion that nobody can access bc its scope is limited to lines 308 - 315
-  // and the only things that have access to that variable are the return fucntions 
+  // and the only things that have access to that variable are the return fucntions - that count variable is not accessible in the global scope
 
+  // Using IFFE's to solve the problem earlier
+  function makeFunctionArray() {
+    const arr = []
+
+    for (var i = 0; i < 5; i++) {
+      arr.push((function (i) {
+        return function () { console.log(i) }
+      })(i))
+    }
+    return arr 
+  }
+  
