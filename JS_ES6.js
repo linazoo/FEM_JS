@@ -42,3 +42,42 @@ x
 // (4) [0, 1, 2, 3]
 x.reduce(add)
 // 6
+
+// Higher order functions continued 
+
+function map(arr, fn) {
+  const newArr = []
+  
+  for (let i = 0; i < arr.length; i++ ) {
+    let val = arr[i]
+    newArr.push(fn(val)) //result of running that fn (function) into that val(value)
+  }
+
+  return newArr
+}
+
+function addOne(num) { return num + 1 }
+
+const x = [0,1,2,3]
+
+console.log(map(x, addOne))
+
+// [1,2,3,4]
+
+// forEach
+
+function map(arr, fn) {
+  const newArr = []
+
+  arr.forEach(function(val) {
+    newArr.push(fn(val))
+  })
+
+  return newArr
+}
+
+function addOne(num) { return num + 1 }
+
+const x = [0,1,2,3]
+
+console.log(map(x, addOne))
