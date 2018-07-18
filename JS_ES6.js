@@ -81,3 +81,8 @@ function addOne(num) { return num + 1 }
 const x = [0,1,2,3]
 
 console.log(map(x, addOne))
+
+//Synchronous? Async? Single-Threaded?
+// Javascript is a single-threaded, synchronous language 
+// A function that takes a long time to run will cause a page to become unresponsive 
+
