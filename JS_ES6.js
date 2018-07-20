@@ -86,3 +86,20 @@ console.log(map(x, addOne))
 // Javascript is a single-threaded, synchronous language 
 // A function that takes a long time to run will cause a page to become unresponsive 
 
+// Asynchronous Javascript 
+// Execution Stack 
+// Browser ExtensionScriptApis
+// Function Queue
+// Event Loop
+
+// Asynchronous Javascript
+// Asynchronous functions: setTimeout(), XMLHttpRequest(), JQuery.ajax(), fetch(), Database calls
+
+function doSomethingAsync(callback) {
+  setTimeout(function() { callback(1) }, 1000)
+}
+
+doSomethingAsync(console.log)
+
+// we have a function that does something async'ously - in this case it returns '1' a second later 
+// for network requests when we don't know exactly how long its gonna return what we do is we create a function that handles the return value so that the function knows when the request comes back what its supposed to do and does it
