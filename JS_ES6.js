@@ -108,6 +108,8 @@ doSomethingAsync(console.log)
 // when we have a callback within a callback within a callback 
 // SOLUTION? PROMISES! Something's eventually gonna happen 
 
+// Promises: alleviate 'callback hell', allow you to write code that assumes a value is returned within a success function, only needs a single error handler
+
 const url = ''
 
 fetch(url)
@@ -129,4 +131,7 @@ fetch(url)
 
   // this is an example on how to handle the requests instead of callbacks within call backs - by using promises :D
 
-  
+// Async/Await (what is the future?) Introduced in ES2017, allows you to write async code as if it were synchornous 
+
+// ~THIS~
+// refers to an object that's set at the creat of a new execution context (function invocation)
