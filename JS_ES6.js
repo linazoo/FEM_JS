@@ -135,3 +135,36 @@ fetch(url)
 
 // ~THIS~
 // refers to an object that's set at the creat of a new execution context (function invocation)
+// another stack frame in that stack
+// in the global execution context referes to global object (window)
+// if the function is called as a method of an object 'this' is bound to the object the method is called on 
+
+// EXAMPLE
+// how do we write something so that 'this' gets bound to other objects?
+const person = {
+  name: 'lina',
+  greet: function() { console.log(this.name) },
+}
+
+person.greet() // this gets bound to person so 'this' so person.name becomes 'lina'
+
+const friend = {
+  name: 'jordan',
+}
+friend.greet = person.greet
+
+friend.greet()
+
+this.name = 'Yowon'
+const greet = person.greet
+greet() 
+
+// 'this' is a way to use a variable that we dont know what will be bound to yet ... so we can think of it as a shortcut
+
+// bind()
+
+const greet = person.greet.bind({name: 'this is a bound object'})
+greet()
+// hello, this is a bound boject 
+
+// call(), apply() will immediately evoke that function
