@@ -103,3 +103,30 @@ doSomethingAsync(console.log)
 
 // we have a function that does something async'ously - in this case it returns '1' a second later 
 // for network requests when we don't know exactly how long its gonna return what we do is we create a function that handles the return value so that the function knows when the request comes back what its supposed to do and does it
+
+// Callback HELL 
+// when we have a callback within a callback within a callback 
+// SOLUTION? PROMISES! Something's eventually gonna happen 
+
+const url = ''
+
+fetch(url)
+  .then(function(res) {
+    //handle error? no we can do... 
+    return res.json() // extract the json out of the result 
+  })
+  .then(function(json) {
+    return({
+      importantData: json.importantData,
+    })
+  })
+  .then(function(data){
+    console.log(data)
+  })
+  .catch(function(err) {
+    //handle error here instead 
+  })
+
+  // this is an example on how to handle the requests instead of callbacks within call backs - by using promises :D
+
+  
