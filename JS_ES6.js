@@ -166,5 +166,8 @@ greet()
 const greet = person.greet.bind({name: 'this is a bound object'})
 greet()
 // hello, this is a bound boject 
+//bind returns a new function which we store in greet and evoke later 
 
 // call(), apply() will immediately evoke that function
+person.greet.call({ name: 'this is a bound object'})
+person.greet.apply({ name: 'this is a bound object'})
