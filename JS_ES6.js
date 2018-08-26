@@ -171,3 +171,41 @@ greet()
 // call(), apply() will immediately evoke that function
 person.greet.call({ name: 'this is a bound object'})
 person.greet.apply({ name: 'this is a bound object'})
+
+
+// React, Props & state
+
+// Classes ES6 
+
+// Props:
+// passed as an object to a component and used to compute the retrned node 
+//TODO implement slideshow example
+const slideShow = (
+  <div>
+    {slides.map(slide => <Slide slide={slide} />)}
+  </div>
+)
+
+const Slide = slide => (
+  <div>
+    <h1> {slide.title} </h1>
+    <ul>
+      {slide.bullets.map(bullet => <li>{bullet}</li>)}
+    </ul>
+  </div>
+)
+
+// any changes of these props will cause a re render 
+// unlike hTML, these can be any JS value (in example 'slide' is passed as an object)
+
+// State
+// internally managed configuration for any component 
+// this.state is a class property on the component instance 
+// how do we set the state? can only be updated by invoking 'this.setState()'
+  // implented in React.Component
+  // setState() calls are batched and run asynchronously 
+  // pass an object to be merged, or a function of previous state 
+
+  // change is tate also cause re-renders 
+
+  
