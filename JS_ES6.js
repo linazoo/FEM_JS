@@ -208,4 +208,24 @@ const Slide = slide => (
 
   // change is tate also cause re-renders 
 
+  import React from "react";
+  import ReactDOM from "react-dom";
+  import { render } from 'react-dom';
+  
+  import "./styles.css";
+  
+  function App(props) {
+    return (
+      <div className="App">
+        <h1>Hello CodeSandbox</h1>
+        <h2>{props.count}</h2>
+      </div>
+    );
+  }
+  
+  const rootElement = document.getElementById("root");
+  ReactDOM.render(<App />, rootElement);
+  
+  let count = 0
+  setInterval(() => render(<App count={count++} />, document.getElementById('root')), 1000)
   
